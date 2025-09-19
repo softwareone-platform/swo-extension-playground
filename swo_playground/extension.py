@@ -5,12 +5,16 @@ from swo.mpt.extensions.runtime.djapp.apps import DjAppConfig
 
 ext = Extension()
 
-class ExtensionConfig(DjAppConfig):
+
+class ExtensionConfig(DjAppConfig):  # type: ignore[misc]
+    """Django extenstion configuration."""
+
     name = "swo_playground"
     verbose_name = "SWO Playground Extension"
     extension = ext
 
-    def extension_ready(self):
+    def extension_ready(self) -> None:
+        """Hook on extension ready event."""
         error_msgs = []
 
         for product_id in settings.MPT_PRODUCTS_IDS:

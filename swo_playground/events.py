@@ -1,14 +1,15 @@
-from mpt_extension_sdk.flows.context import Context
+from mpt_extension_sdk.core.events.dataclasse import Event
+from mpt_extension_sdk.mpt_http.base import MPTClient
 
 from swo_playground.api import logger
 from swo_playground.extension import ext
-from swo_playground.purchase import purchase_pipeline
+from swo_playground.steps import purchase_pipeline
 
 
-@ext.events.listener("orders")
-def process_order_fulfillment(client, event):
-
-    context = event.data  # type: Context
+@ext.events.listener("orders")  # type: ignore[misc]
+def process_order_fulfillment(client: MPTClient, event: Event) -> None:
+    """Event handler for FF orders."""
+    context = event.data
     logger.info(f"{context.order_id} - Order fulfilling...")
 
     purchase_pipeline.run(client, context)
