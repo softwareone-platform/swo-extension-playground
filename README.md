@@ -1,5 +1,5 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=softwareone-platform_swo-aws-extension&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=softwareone-platform_swo-aws-extension)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=softwareone-platform_swo-aws-extension&metric=coverage)](https://sonarcloud.io/summary/new_code?id=softwareone-platform_swo-aws-extension)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=softwareone-platform_swo-extension-playground&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=softwareone-platform_swo-extension-playground)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=softwareone-platform_swo-extension-playground&metric=coverage)](https://sonarcloud.io/summary/new_code?id=softwareone-platform_swo-extension-playground)
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
@@ -33,6 +33,9 @@ MPT_API_BASE_URL=http://devmock:8000
 MPT_API_TOKEN=<vendor-api-token>
 MPT_ORDERS_API_POLLING_INTERVAL_SECS=120
 EXT_WEBHOOKS_SECRETS={"PRD-1111-1111": "<super-jwt-secret>"}
+MPT_INITIALIZER="swo_playground.initializer.initialize"
+MPT_KEY_VAULT_NAME=""
+MPT_NOTIFY_CATEGORIES={"ORDERS": "NTC-0000-0006"}
 ```
 
 `MPT_PRODUCTS_IDS` should be a comma-separated list of the SWO Marketplace Product identifiers
@@ -52,6 +55,9 @@ MPT_API_BASE_URL=http://devmock:8000
 MPT_API_TOKEN=<vendor-api-token>
 MPT_ORDERS_API_POLLING_INTERVAL_SECS=120
 EXT_WEBHOOKS_SECRETS={"PRD-1111-1111": "<super-jwt-secret>"}
+MPT_INITIALIZER="swo_playground.initializer.initialize"
+MPT_KEY_VAULT_NAME=""
+MPT_NOTIFY_CATEGORIES={"ORDERS": "NTC-0000-0006"}
 ```
 
 ```
@@ -70,13 +76,17 @@ $ docker-compose run --service-ports app
 # Configuration
 
 ## Application
-| Environment Variable            | Default               | Example                               | Description                                                                               |
-|---------------------------------|-----------------------|---------------------------------------|-------------------------------------------------------------------------------------------|
-| `EXT_WEBHOOKS_SECRETS`          | -                     | {"PRD-1111-1111": "123qweasd3432234"} | Webhook secret of the Draft validation Webhook in SoftwareONE Marketplace for the product |
-| `MPT_PRODUCTS_IDS`              | PRD-1111-1111         | PRD-1234-1234,PRD-4321-4321           | Comma-separated list of SoftwareONE Marketplace Product ID                                |
-| `MPT_API_BASE_URL`              | http://localhost:8000 | https://portal.softwareone.com/mpt    | SoftwareONE Marketplace API URL                                                           |
-| `MPT_API_TOKEN`                 | -                     | eyJhbGciOiJSUzI1N...                  | SoftwareONE Marketplace API Token                                                         |
-    
+| Environment Variable            | Default               | Example                                | Description                                                                               |
+|---------------------------------|-----------------------|----------------------------------------|-------------------------------------------------------------------------------------------|
+| `EXT_WEBHOOKS_SECRETS`          | -                     | {"PRD-1111-1111": "123qweasd3432234"}  | Webhook secret of the Draft validation Webhook in SoftwareONE Marketplace for the product |
+| `MPT_PRODUCTS_IDS`              | PRD-1111-1111         | PRD-1234-1234,PRD-4321-4321            | Comma-separated list of SoftwareONE Marketplace Product ID                                |
+| `MPT_API_BASE_URL`              | http://localhost:8000 | https://portal.softwareone.com         | SoftwareONE Marketplace API URL                                                           |
+| `MPT_API_TOKEN`                 | -                     | eyJhbGciOiJSUzI1N...                   | SoftwareONE Marketplace API Token                                                         |
+| `MPT_INITIALIZER`               | -                     | swo_playground.initializer.initialize  | Initializer function                                                                     |
+| `MPT_NOTIFY_CATEGORIES`         | -                     | {"ORDERS": "NTC-0000-0006"}            | Notify categories for the orders                                                          |
+| `MPT_KEY_VAULT_NAME`            | -                     | swo-playground-kv                      | Key Vault name                                                                           |
+| `MPT_PORTAL_BASE_URL`           | http://localhost:8000 | https://portal.softwareone.com         | SoftwareONE Marketplace Portal URL                                                        |
+
 
 ## Other
 | Environment Variable                   | Default | Example | Description                                                          |
