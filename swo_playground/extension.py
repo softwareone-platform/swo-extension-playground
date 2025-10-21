@@ -1,20 +1,22 @@
+import logging
+
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from mpt_extension_sdk.core.extension import Extension
-from swo.mpt.extensions.runtime.djapp.apps import DjAppConfig
+from mpt_extension_sdk.runtime.djapp.apps import DjAppConfig  # type: ignore[import-untyped]
 
-ext = Extension()
+from swo_playground.api import ext
 
+logger = logging.getLogger(__name__)
 
 class ExtensionConfig(DjAppConfig):  # type: ignore[misc]
-    """Django extenstion configuration."""
+    """Extension Django config."""
 
     name = "swo_playground"
     verbose_name = "SWO Playground Extension"
     extension = ext
 
     def extension_ready(self) -> None:
-        """Hook on extension ready event."""
+        """Checks if webhook and product ids is configured properly."""
         error_msgs = []
 
         for product_id in settings.MPT_PRODUCTS_IDS:
@@ -30,3 +32,5 @@ class ExtensionConfig(DjAppConfig):  # type: ignore[misc]
 
         if error_msgs:
             raise ImproperlyConfigured("\n".join(error_msgs))
+
+        logger.info("Extension ready.")

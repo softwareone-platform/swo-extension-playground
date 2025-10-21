@@ -1,5 +1,5 @@
-from mpt_extension_sdk.core.events.dataclasse import Event
-from mpt_extension_sdk.mpt_http.base import MPTClient
+from mpt_extension_sdk.core.events.dataclasse import Event  # type: ignore[import-untyped]
+from mpt_extension_sdk.mpt_http.base import MPTClient  # type: ignore[import-untyped]
 
 from swo_playground.api import logger
 from swo_playground.extension import ext
