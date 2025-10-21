@@ -8,6 +8,7 @@ from swo_playground.api import ext
 
 logger = logging.getLogger(__name__)
 
+
 class ExtensionConfig(DjAppConfig):  # type: ignore[misc]
     """Extension Django config."""
 

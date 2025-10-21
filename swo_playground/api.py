@@ -52,7 +52,7 @@ def jwt_secret_callback(client: MPTClient, claims: Mapping[str, Any]) -> str:
         400: Error,
     },
 )  # type: ignore[misc]
-def root() -> Response:
+def root(request: ExtensionHttpRequest) -> Response:
     """Root endpoint."""
     return 200, {"message": "Ok"}
 
@@ -62,7 +62,6 @@ def root() -> Response:
     description="Healthcheck endpoint.",
     response={
         200: dict,
-        400: Error,
     },
 )  # type: ignore[misc]
 def healthcheck(request: ExtensionHttpRequest) -> Response:
