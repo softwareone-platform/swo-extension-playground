@@ -450,34 +450,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-stubs"
-version = "5.2.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "django" },
-    { name = "django-stubs-ext" },
-    { name = "types-pyyaml" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e1/8e/286150f593481c33f54d14efb58d72178f159d57d31043529d38bbc98e2f/django_stubs-5.2.5.tar.gz", hash = "sha256:fc78384e28d8c5292d60983075a5934f644f7c304c25ae2793fc57aa66d5018b", size = 247794, upload-time = "2025-09-12T19:29:49.636Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/2f/02/cdbf7652ef2c9a7a1fed7c279484b7f3806f15b1bb34aec9fef8e8cfacbf/django_stubs-5.2.5-py3-none-any.whl", hash = "sha256:223c1a3324cd4873b7629dec6e9adbe224a94508284c1926b25fddff7a92252b", size = 490196, upload-time = "2025-09-12T19:29:47.954Z" },
-]
-
-[[package]]
-name = "django-stubs-ext"
-version = "5.2.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "django" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/16/94/c9b8f4c47084a0fa666da9066c36771098101932688adf2c17a40fab79c2/django_stubs_ext-5.2.5.tar.gz", hash = "sha256:ecc628df29d36cede638567c4e33ff485dd7a99f1552ad0cece8c60e9c3a8872", size = 6489, upload-time = "2025-09-12T19:29:06.008Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e0/fe/a85a105fddffadb4a8d50e500caeee87d836b679d51a19d52dfa0cc6c660/django_stubs_ext-5.2.5-py3-none-any.whl", hash = "sha256:9b4b8ac9d32f7e6c304fd05477f8688fae6ed57f6a0f9f4d074f9e55b5a3da14", size = 9310, upload-time = "2025-09-12T19:29:04.62Z" },
-]
-
-[[package]]
 name = "et-xmlfile"
 version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -769,7 +741,7 @@ wheels = [
 
 [[package]]
 name = "mpt-extension-sdk"
-version = "5.9.2"
+version = "5.15"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "azure-identity" },
@@ -800,9 +772,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "watchfiles" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/9b/e306ea121a3f93708201507ad17f221b077c6f38a9492eb45e97dcdd2620/mpt_extension_sdk-5.9.2.tar.gz", hash = "sha256:aed9ed08b8e594f692f18aa9d0e6cc89c1e46e3767718fec27e3ba0f2fe8dac1", size = 30118, upload-time = "2025-08-29T14:03:50.801Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/36/03/da858a0743664c9a97195dcceb424300009f191bb8712ff51b90b6ed9efc/mpt_extension_sdk-5.15.tar.gz", hash = "sha256:bb7fcad8188683dd374aa6536d7c69c63cf483dc57fc588a43b234a01c2a9ef9", size = 30221, upload-time = "2025-10-14T14:32:21.917Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/3d/3cb2a5a5c1ace8248e9adb7ee14025cb96686a0370db07f9bc999833e25e/mpt_extension_sdk-5.9.2-py3-none-any.whl", hash = "sha256:e44e994239a93c9f2533a81a9481ca5b098f3fecb55d7f316863d234ce6302ad", size = 41940, upload-time = "2025-08-29T14:03:49.338Z" },
+    { url = "https://files.pythonhosted.org/packages/06/98/0180718336cf17a9d8125ece65b7ac27860868873e7166985f52c48cca1c/mpt_extension_sdk-5.15-py3-none-any.whl", hash = "sha256:0e480565e9a513b38de877836dce5579d181c607d4426c606b6bea09c68aff99", size = 42011, upload-time = "2025-10-14T14:32:20.718Z" },
 ]
 
 [[package]]
@@ -1350,6 +1322,18 @@ wheels = [
 ]
 
 [[package]]
+name = "pytest-django"
+version = "4.8.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/bd/cf/44510ac5479f281d6663a08dff0d93f56b21f4ee091980ea4d4b64491ad6/pytest-django-4.8.0.tar.gz", hash = "sha256:5d054fe011c56f3b10f978f41a8efb2e5adfc7e680ef36fb571ada1f24779d90", size = 83291, upload-time = "2024-01-30T13:14:19.511Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/5b/29555191e903881d05e1f7184205ec534c7021e0ee077d1e6a1ee8f1b1eb/pytest_django-4.8.0-py3-none-any.whl", hash = "sha256:ca1ddd1e0e4c227cf9e3e40a6afc6d106b3e70868fd2ac5798a22501271cd0c7", size = 23432, upload-time = "2024-01-30T13:14:17.953Z" },
+]
+
+[[package]]
 name = "pytest-mock"
 version = "3.14.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1598,7 +1582,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "django-stubs" },
+    { name = "flake8" },
     { name = "freezegun" },
     { name = "ipdb" },
     { name = "ipython" },
@@ -1608,6 +1592,7 @@ dev = [
     { name = "pytest-asyncio" },
     { name = "pytest-cov" },
     { name = "pytest-deadfixtures" },
+    { name = "pytest-django" },
     { name = "pytest-mock" },
     { name = "pytest-randomly" },
     { name = "pytest-xdist" },
@@ -1633,13 +1618,13 @@ requires-dist = [
     { name = "django", specifier = "==4.2.*" },
     { name = "jinja2", specifier = "==3.1.*" },
     { name = "markdown-it-py", specifier = "==3.0.*" },
-    { name = "mpt-extension-sdk", specifier = "==5.9.*" },
+    { name = "mpt-extension-sdk", specifier = "==5.15.*" },
     { name = "requests", specifier = "==2.32.*" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "django-stubs" },
+    { name = "flake8", specifier = ">=7.3.0" },
     { name = "freezegun", specifier = "==1.5.*" },
     { name = "ipdb", specifier = "==0.13.*" },
     { name = "ipython", specifier = "==9.*" },
@@ -1649,6 +1634,7 @@ dev = [
     { name = "pytest-asyncio", specifier = "==1.1.*" },
     { name = "pytest-cov", specifier = "==6.1.*" },
     { name = "pytest-deadfixtures", specifier = "==2.2.*" },
+    { name = "pytest-django", specifier = "==4.8.*" },
     { name = "pytest-mock", specifier = "==3.14.*" },
     { name = "pytest-randomly", specifier = "==3.16.*" },
     { name = "pytest-xdist", specifier = "==3.6.*" },
@@ -1685,15 +1671,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/c4/12/8bc4a25d49f1e4b7bbca868daa3ee80b1983d8137b4986867b5b65ab2ecd/types_openpyxl-3.1.5.20250919.tar.gz", hash = "sha256:232b5906773eebace1509b8994cdadda043f692cfdba9bfbb86ca921d54d32d7", size = 100880, upload-time = "2025-09-19T02:54:39.997Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/36/3c/d49cf3f4489a10e9ddefde18fd258f120754c5825d06d145d9a0aaac770b/types_openpyxl-3.1.5.20250919-py3-none-any.whl", hash = "sha256:bd06f18b12fd5e1c9f0b666ee6151d8140216afa7496f7ebb9fe9d33a1a3ce99", size = 166078, upload-time = "2025-09-19T02:54:38.657Z" },
-]
-
-[[package]]
-name = "types-pyyaml"
-version = "6.0.12.20250915"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/7e/69/3c51b36d04da19b92f9e815be12753125bd8bc247ba0470a982e6979e71c/types_pyyaml-6.0.12.20250915.tar.gz", hash = "sha256:0f8b54a528c303f0e6f7165687dd33fafa81c807fcac23f632b63aa624ced1d3", size = 17522, upload-time = "2025-09-15T03:01:00.728Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/bd/e0/1eed384f02555dde685fff1a1ac805c1c7dcb6dd019c916fe659b1c1f9ec/types_pyyaml-6.0.12.20250915-py3-none-any.whl", hash = "sha256:e7d4d9e064e89a3b3cae120b4990cd370874d2bf12fa5f46c97018dd5d3c9ab6", size = 20338, upload-time = "2025-09-15T03:00:59.218Z" },
 ]
 
 [[package]]

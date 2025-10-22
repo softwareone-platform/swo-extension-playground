@@ -1,21 +1,22 @@
 import logging
+from collections.abc import Mapping
 from pprint import pformat
 from typing import Annotated, Any, Literal
 
-from collection.abc import Mapping
 from django.conf import settings
 from django.http import HttpRequest
-from mpt_extension_sdk.core.security import JWTAuth
-from mpt_extension_sdk.flows.context import Context
-from mpt_extension_sdk.mpt_http.base import MPTClient
-from mpt_extension_sdk.mpt_http.mpt import get_webhook
-from mpt_extension_sdk.runtime.djapp.conf import get_for_product
+from mpt_extension_sdk.core.extension import Extension  # type: ignore[import-untyped]
+from mpt_extension_sdk.core.security import JWTAuth  # type: ignore[import-untyped]
+from mpt_extension_sdk.flows.context import Context  # type: ignore[import-untyped]
+from mpt_extension_sdk.mpt_http.base import MPTClient  # type: ignore[import-untyped]
+from mpt_extension_sdk.mpt_http.mpt import get_webhook  # type: ignore[import-untyped]
+from mpt_extension_sdk.runtime.djapp.conf import get_for_product  # type: ignore[import-untyped]
 from ninja import Body, Schema
-
-from swo_playground.extension import ext
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+ext = Extension()
 
 
 class Error(Schema):
@@ -43,6 +44,32 @@ def jwt_secret_callback(client: MPTClient, claims: Mapping[str, Any]) -> str:
     return str(get_for_product(settings, "WEBHOOKS_SECRETS", product_id))
 
 
+@ext.api.get(
+    "/",
+    description="Root endpoint.",
+    response={
+        200: dict,
+        400: Error,
+    },
+)  # type: ignore[misc]
+def root(request: ExtensionHttpRequest) -> Response:
+    """Root endpoint."""
+    return 200, {"message": "Ok"}
+
+
+@ext.api.get(
+    "/healthcheck",
+    description="Healthcheck endpoint.",
+    response={
+        200: dict,
+        400: Error,
+    },
+)  # type: ignore[misc]
+def healthcheck(request: ExtensionHttpRequest) -> Response:
+    """Returns 200 healthy."""
+    return 200, {"status": "Healthy"}
+
+
 @ext.api.post(
     "/v1/orders/validate",
     response={
@@ -62,7 +89,7 @@ def process_order_validation(
     except Exception as exc:
         logger.exception("Unexpected error during validation")
         return 400, Error(
-            id="AWS001",
+            id="MPT001",
             message=f"Unexpected error during validation: {exc}.",
         )
     else:
