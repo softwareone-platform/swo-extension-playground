@@ -163,7 +163,7 @@ LOGGING = {
         "rich": {
             "class": "mpt_extension_sdk.runtime.logging.RichHandler",
             "formatter": "rich",
-            "log_time_format": lambda x: x.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3],
+            "log_time_format": lambda log_time: log_time.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3],
             "rich_tracebacks": True,
         },
         "opentelemetry": {

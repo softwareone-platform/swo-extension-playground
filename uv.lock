@@ -1598,10 +1598,7 @@ version = "0.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "django" },
-    { name = "jinja2" },
-    { name = "markdown-it-py" },
     { name = "mpt-extension-sdk" },
-    { name = "requests" },
 ]
 
 [package.dev-dependencies]
@@ -1642,10 +1639,7 @@ runtime = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = "==4.2.*" },
-    { name = "jinja2", specifier = "==3.1.*" },
-    { name = "markdown-it-py", specifier = "==3.0.*" },
     { name = "mpt-extension-sdk", specifier = "==5.15.*" },
-    { name = "requests", specifier = "==2.32.*" },
 ]
 
 [package.metadata.requires-dev]
