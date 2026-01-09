@@ -37,12 +37,13 @@ reviews:
   path_filters:
       - "!.gitignore"
   path_instructions:
-      - path: "**/*.py"
-        instructions: |
-          Do not suggest formatting changes or mention code formatting using Black. Instead use Ruff or Flake8
       - path: "**/*"
         instructions: |
-          When reviewing subsequent commits, always check if previous review comments have been addressed and acknowledge resolved issues.
+          For each subsequent commit in this PR, explicitly verify if previous review comments have been resolved
+      - path: "**/*.py"
+        instructions: |
+          Follow the linting rules defined in pyproject.toml under [tool.ruff] and [tool.flake8] sections.
+          For formatting, use Ruff instead of Black. Do not suggest Black formatting changes.
   abort_on_close: true
   disable_cache: false
   auto_review:
