@@ -27,7 +27,7 @@ Common development workflows are wrapped in the `makefile`:
 - `make bash` – start the app container and open a bash shell
 - `make build` – build the application image for development
 - `make check` – run code quality checks (ruff, flake8, lockfile check)
-- `make check-all` – run checks, formatting, and tests
+- `make check-all` – run checks and tests
 - `make format` – apply formatting and import fixes
 - `make down` – stop and remove containers
 - `make review` –  check the code in the cli by running CodeRabbit

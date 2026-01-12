@@ -7,7 +7,7 @@ help:
 	@echo "  make bash             - Open a bash shell in the app container."
 	@echo "  make build            - Build images."
 	@echo "  make check            - Check code quality with ruff."
-	@echo "  make check-all        - Run check, format and tests."
+	@echo "  make check-all        - Run checks and tests."
 	@echo "  make down             - Stop and remove containers."
 	@echo "  make format           - Format code."
 	@echo "  make review           - Check the code in the cli by running CodeRabbit."
@@ -25,9 +25,7 @@ build:
 check:
 	  $(DC) run --rm app bash -c "ruff format --check . && ruff check . && flake8 . && uv lock --check"
 
-check-all:
-	  make check
-	  make test
+check-all: check test
 
 down:
 	  $(DC) down
@@ -45,4 +43,4 @@ shell:
 	  $(DC) run --rm -it app bash -c "swoext shell"
 
 test:
-	  $(DC) run --rm app pytest $(args) .
+	  $(DC) run --rm app pytest $(if $(args),$(args),.)
