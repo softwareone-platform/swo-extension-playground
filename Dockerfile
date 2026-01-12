@@ -1,4 +1,4 @@
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim as base
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS base
 
 WORKDIR /extension
 
@@ -9,7 +9,7 @@ ENV PATH=/opt/venv/bin:$PATH
 
 FROM base AS build
 
-COPY . /extension
+COPY . .
 
 RUN uv sync --frozen --no-cache --all-groups --active
 
