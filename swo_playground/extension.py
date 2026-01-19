@@ -2,7 +2,7 @@ import logging
 
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from mpt_extension_sdk.runtime.djapp.apps import DjAppConfig  # type: ignore[import-untyped]
+from mpt_extension_sdk.runtime.djapp.apps import DjAppConfig
 
 from swo_playground.api import ext
 

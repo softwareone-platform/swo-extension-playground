@@ -6,7 +6,7 @@ help:
 	@echo "Available commands:"
 	@echo "  make bash             - Open a bash shell in the app container."
 	@echo "  make build            - Build images."
-	@echo "  make check            - Check code quality with ruff."
+	@echo "  make check            - Run checks."
 	@echo "  make check-all        - Run checks and tests."
 	@echo "  make down             - Stop and remove containers."
 	@echo "  make format           - Format code."
@@ -23,7 +23,7 @@ build:
 	  $(DC) build
 
 check:
-	  $(DC) run --rm app bash -c "ruff format --check . && ruff check . && flake8 . && uv lock --check"
+	  $(DC) run --rm app bash -c "ruff format --check . && ruff check . && flake8 . && mypy . && uv lock --check"
 
 check-all: check test
 

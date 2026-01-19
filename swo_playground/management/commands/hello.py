@@ -3,7 +3,7 @@ from typing import Any
 from django.core.management.base import BaseCommand
 
 
-class Command(BaseCommand):
+class Command(BaseCommand):  # type: ignore [misc]
     """Noop command."""
 
     help = "Hello world"
