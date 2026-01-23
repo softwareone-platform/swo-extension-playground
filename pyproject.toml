@@ -50,6 +50,7 @@ build-backend = "hatchling.build"
 testpaths = "tests"
 pythonpath = "."
 addopts = "--cov=swo_playground --cov-report=term-missing --cov-report=xml --import-mode=importlib"
+DJANGO_SETTINGS_MODULE = "mpt_extension_sdk.runtime.djapp.conf.default"
 log_cli = false
 filterwarnings = []
 
@@ -190,8 +191,24 @@ convention = "google"
 known-third-party = ["swo"]
 
 [tool.mypy]
-warn_no_return = false
-
-[[tool.mypy.overrides]]
-module = "django.*"
+# The mypy configurations: http://bit.ly/2zEl9WI
+disable_error_code = ["import-untyped"]
+enable_error_code = [
+  "truthy-bool",
+  "truthy-iterable",
+  "redundant-expr",
+  "unused-awaitable",
+  "ignore-without-code",
+  "possibly-undefined",
+  "redundant-self",
+  "explicit-override",
+  "mutable-override",
+  "unimported-reveal",
+  "deprecated",
+]
+exclude = ["tests"]
+exclude_gitignore = true
 ignore_missing_imports = true
+local_partial_types = true
+strict = true
+warn_unreachable = true
