@@ -9,7 +9,7 @@ license = {text = "Apache-2.0 license"}
 
 dependencies = [
     "django==4.2.*",
-    "mpt-extension-sdk==5.15.*",
+    "mpt-extension-sdk==5.17.*",
 ]
 
 [project.entry-points."swo.mpt.ext"]
