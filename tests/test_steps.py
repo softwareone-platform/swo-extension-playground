@@ -27,7 +27,7 @@ def context():
     })
 
 
-def test_noops(mocker, client, context, next_step):
+def test_noops(client, context, next_step):
     step = NoopStep()
 
     step(client, context, next_step)  # act

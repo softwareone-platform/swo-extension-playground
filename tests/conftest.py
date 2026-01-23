@@ -1,8 +1,6 @@
 import pytest
-from django.test import override_settings
 
 
 @pytest.fixture(autouse=True)
-def force_test_settings():
-    with override_settings(DJANGO_SETTINGS_MODULE="tests.django.settings"):
-        yield
+def settings_configuration(settings):
+    settings.INSTALLED_APPS = settings.INSTALLED_APPS + ["swo_playground.apps.ExtensionConfig"]  # noqa: PLR6104, RUF005

@@ -2,7 +2,7 @@ from mpt_extension_sdk.core.events.dataclasse import Event  # type: ignore[impor
 from mpt_extension_sdk.mpt_http.base import MPTClient  # type: ignore[import-untyped]
 
 from swo_playground.api import logger
-from swo_playground.extension import ext
+from swo_playground.apps import ext
 from swo_playground.steps import purchase_pipeline
 
 

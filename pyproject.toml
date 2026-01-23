@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.entry-points."swo.mpt.ext"]
-app_config = "swo_playground.extension:ExtensionConfig"
+app_config = "swo_playground.apps:ExtensionConfig"
 
 [dependency-groups]
 dev = [
@@ -50,7 +50,7 @@ build-backend = "hatchling.build"
 testpaths = "tests"
 pythonpath = "."
 addopts = "--cov=swo_playground --cov-report=term-missing --cov-report=xml --import-mode=importlib"
-DJANGO_SETTINGS_MODULE = "tests.django.settings"
+DJANGO_SETTINGS_MODULE = "mpt_extension_sdk.runtime.djapp.conf.default"
 log_cli = false
 filterwarnings = []
 
@@ -59,7 +59,6 @@ branch = true
 relative_files = true
 omit = [
   "__init__.py",
-  "swo_playground/settings.py"
 ]
 
 [tool.flake8]
