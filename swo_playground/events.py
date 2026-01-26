@@ -1,12 +1,11 @@
-from mpt_extension_sdk.core.events.dataclasse import Event  # type: ignore[import-untyped]
-from mpt_extension_sdk.mpt_http.base import MPTClient  # type: ignore[import-untyped]
+from mpt_extension_sdk.core.events.dataclasses import Event
+from mpt_extension_sdk.mpt_http.base import MPTClient
 
-from swo_playground.api import logger
-from swo_playground.apps import ext
+from swo_playground.api import ext, logger
 from swo_playground.steps import purchase_pipeline
 
 
-@ext.events.listener("orders")  # type: ignore[misc]
+@ext.events.listener("orders")  # type: ignore[untyped-decorator]
 def process_order_fulfillment(client: MPTClient, event: Event) -> None:
     """Event handler for FF orders."""
     context = event.data

@@ -1,17 +1,17 @@
 import logging
 
-from mpt_extension_sdk.flows.context import Context  # type: ignore[import-untyped]
-from mpt_extension_sdk.flows.pipeline import (  # type: ignore[import-untyped]
+from mpt_extension_sdk.flows.context import Context
+from mpt_extension_sdk.flows.pipeline import (
     NextStep,
     Pipeline,
     Step,
 )
-from mpt_extension_sdk.mpt_http.base import MPTClient  # type: ignore[import-untyped]
-from mpt_extension_sdk.mpt_http.mpt import (  # type: ignore[import-untyped]
+from mpt_extension_sdk.mpt_http.base import MPTClient
+from mpt_extension_sdk.mpt_http.mpt import (
     complete_order,
     create_subscription,
 )
-from mpt_extension_sdk.mpt_http.wrap_http_error import MPTAPIError  # type: ignore[import-untyped]
+from mpt_extension_sdk.mpt_http.wrap_http_error import MPTAPIError
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ class NoopStep(Step):  # type: ignore[misc]
     """
 
     def __call__(self, client: MPTClient, context: Context, next_step: NextStep) -> None:
-        """Exectute step."""
+        """Execute step."""
         logger.info("%s - No operation step executed.", context.order_id)
         next_step(client, context)
 
